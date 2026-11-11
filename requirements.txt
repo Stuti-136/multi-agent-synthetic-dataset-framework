@@ -1,0 +1,9 @@
+google-genai
+python-dotenv
+pydantic
+tenacity
+pandas
+scikit-learn
+matplotlib
+seaborn
+pytest
