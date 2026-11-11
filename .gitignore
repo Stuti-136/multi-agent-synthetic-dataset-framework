@@ -1,0 +1,21 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+env/
+
+# Data (Large files)
+data/raw/
+data/generated/
+data/accepted/
+data/rejected/
+exports/*.png
+exports/*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
