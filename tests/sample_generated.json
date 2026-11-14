@@ -1,0 +1,38 @@
+[
+  {
+    "id": "INV_001",
+    "category": "invoice",
+    "difficulty": "easy",
+    "edge_case": "date_format_variation",
+    "style": "paragraph",
+    "locale": "india",
+    "source_document": "Sharma Traders issued invoice INV-2041 on 15/03/2026. The total amount due is \u20b918,250, payable within 30 days of receipt.",
+    "instruction": "Extract the invoice number, vendor, invoice date and total amount due.",
+    "json_schema": {"invoice_number": "string", "vendor": "string", "date": "date", "amount": "number"},
+    "ground_truth": {"invoice_number": "INV-2041", "vendor": "Sharma Traders", "date": "2026-03-15", "amount": 18250}
+  },
+  {
+    "id": "INV_002",
+    "category": "invoice",
+    "difficulty": "medium",
+    "edge_case": "missing_field",
+    "style": "email",
+    "locale": "usa",
+    "source_document": "Subject: Invoice for March services\n\nHi team,\n\nPlease find attached invoice BP-7783 from BrightPath LLC for $2,400.00. Let us know if you have any questions about the line items.\n\nThanks,\nDana",
+    "instruction": "Extract the invoice number, vendor, due date and total amount.",
+    "json_schema": {"invoice_number": "string", "vendor": "string", "due_date": "date", "amount": "number"},
+    "ground_truth": {"invoice_number": "BP-7783", "vendor": "BrightPath LLC", "due_date": null, "amount": 2400}
+  },
+  {
+    "id": "INV_003",
+    "category": "invoice",
+    "difficulty": "hard",
+    "edge_case": "multiple_amounts",
+    "style": "table",
+    "locale": "europe",
+    "source_document": "Rechnung / Invoice\n| Invoice No | RE-2026-118 |\n| Supplier | Nordlicht GmbH |\n| Date | 03.11.2026 |\n| Subtotal | 1.200,00 EUR |\n| Discount (10%) | -120,00 EUR |\n| VAT (19%) | 205,20 EUR |\n| Total due | 1.285,20 EUR |",
+    "instruction": "Extract the invoice number, vendor, invoice date and the final total due.",
+    "json_schema": {"invoice_number": "string", "vendor": "string", "date": "date", "amount": "number"},
+    "ground_truth": {"invoice_number": "RE-2026-118", "vendor": "Nordlicht GmbH", "date": "2026-11-03", "amount": 1285.2}
+  }
+]
