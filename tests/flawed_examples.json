@@ -1,0 +1,240 @@
+{
+  "good": [
+    {
+      "id": "good-1",
+      "recipe": {
+        "domain": "invoices",
+        "difficulty": "easy"
+      },
+      "instruction": "Extract the vendor, invoice_date and total_amount from the text.",
+      "input_text": "Invoice from Acme Corp dated 2024-03-15. Total due: $450.00 payable within 30 days.",
+      "required_fields": [
+        "vendor",
+        "invoice_date",
+        "total_amount"
+      ],
+      "expected_output": {
+        "vendor": "Acme Corp",
+        "invoice_date": "2024-03-15",
+        "total_amount": "$450.00"
+      },
+      "label": "good"
+    },
+    {
+      "id": "good-2",
+      "recipe": {
+        "domain": "emails",
+        "difficulty": "easy"
+      },
+      "instruction": "Extract the sender_name and meeting_time from this email.",
+      "input_text": "Hi team, this is Priya Nair. Our weekly sync will take place at 3:30 PM on Friday in room B.",
+      "required_fields": [
+        "sender_name",
+        "meeting_time"
+      ],
+      "expected_output": {
+        "sender_name": "Priya Nair",
+        "meeting_time": "3:30 PM"
+      },
+      "label": "good"
+    },
+    {
+      "id": "good-3",
+      "recipe": {
+        "domain": "job_postings",
+        "difficulty": "medium"
+      },
+      "instruction": "Extract job_title, location and salary_range. Use null if a field is absent.",
+      "input_text": "We are hiring a Senior Data Engineer in Bengaluru. The role offers a salary range of 28-35 LPA plus equity.",
+      "required_fields": [
+        "job_title",
+        "location",
+        "salary_range"
+      ],
+      "expected_output": {
+        "job_title": "Senior Data Engineer",
+        "location": "Bengaluru",
+        "salary_range": "28-35 LPA"
+      },
+      "label": "good"
+    },
+    {
+      "id": "good-4",
+      "recipe": {
+        "domain": "support_tickets",
+        "difficulty": "medium"
+      },
+      "instruction": "Extract customer_name, product and order_id. Use null when missing.",
+      "input_text": "Ticket from Daniel Ortiz: the UltraBlend mixer arrived with a cracked jar. He did not provide an order number.",
+      "required_fields": [
+        "customer_name",
+        "product",
+        "order_id"
+      ],
+      "expected_output": {
+        "customer_name": "Daniel Ortiz",
+        "product": "UltraBlend mixer",
+        "order_id": null
+      },
+      "label": "good"
+    },
+    {
+      "id": "good-5",
+      "recipe": {
+        "domain": "news",
+        "difficulty": "hard"
+      },
+      "instruction": "Extract the company, acquirer and deal_value mentioned in the article excerpt.",
+      "input_text": "Shares of Lumina Labs jumped on Monday after Verdant Systems agreed to buy the startup for $2.1 billion in cash.",
+      "required_fields": [
+        "company",
+        "acquirer",
+        "deal_value"
+      ],
+      "expected_output": {
+        "company": "Lumina Labs",
+        "acquirer": "Verdant Systems",
+        "deal_value": "$2.1 billion"
+      },
+      "label": "good"
+    },
+    {
+      "id": "good-6",
+      "recipe": {
+        "domain": "events",
+        "difficulty": "hard"
+      },
+      "instruction": "Extract event_name, venue and date from the announcement.",
+      "input_text": "After two years online, the Pune DevSummit returns in person at the Orchid Convention Centre on 12 October 2025.",
+      "required_fields": [
+        "event_name",
+        "venue",
+        "date"
+      ],
+      "expected_output": {
+        "event_name": "Pune DevSummit",
+        "venue": "Orchid Convention Centre",
+        "date": "12 October 2025"
+      },
+      "label": "good"
+    }
+  ],
+  "flawed": [
+    {
+      "id": "flawed-1",
+      "recipe": {
+        "domain": "invoices",
+        "difficulty": "easy"
+      },
+      "instruction": "Extract the vendor and total_amount from the text.",
+      "input_text": "Invoice from Globex Ltd dated 2024-05-02. Total due: $980.00 payable within 14 days.",
+      "required_fields": [
+        "vendor",
+        "total_amount"
+      ],
+      "expected_output": {
+        "vendor": "Globex Ltd",
+        "total_amount": "$1,250.00"
+      },
+      "label": "flawed",
+      "flaw_type": "ungrounded_value",
+      "caught_by": "rules"
+    },
+    {
+      "id": "flawed-2",
+      "recipe": {
+        "domain": "emails",
+        "difficulty": "easy"
+      },
+      "instruction": "Extract the sender_name and meeting_time from this email.",
+      "input_text": "Hi!",
+      "required_fields": [
+        "sender_name",
+        "meeting_time"
+      ],
+      "expected_output": {
+        "sender_name": "Hi",
+        "meeting_time": null
+      },
+      "label": "flawed",
+      "flaw_type": "input_too_short",
+      "caught_by": "rules"
+    },
+    {
+      "id": "flawed-3",
+      "recipe": {
+        "domain": "job_postings",
+        "difficulty": "medium"
+      },
+      "instruction": "Extract job_title and location from this posting.",
+      "input_text": "TODO: write job posting text here for the <job_title> role located in <city> next year.",
+      "required_fields": [
+        "job_title",
+        "location"
+      ],
+      "expected_output": {
+        "job_title": "<job_title>",
+        "location": null
+      },
+      "label": "flawed",
+      "flaw_type": "placeholder_text",
+      "caught_by": "rules"
+    },
+    {
+      "id": "flawed-4",
+      "recipe": {
+        "domain": "support_tickets",
+        "difficulty": "medium"
+      },
+      "instruction": "Extract customer_name and product from the ticket.",
+      "input_text": "Ticket from Meera Iyer: the AquaPure bottle leaks near the cap after one week of normal use.",
+      "required_fields": [
+        "customer_name",
+        "product"
+      ],
+      "expected_output": {
+        "customer_name": "",
+        "product": "AquaPure bottle"
+      },
+      "label": "flawed",
+      "flaw_type": "empty_value",
+      "caught_by": "rules"
+    },
+    {
+      "id": "flawed-5",
+      "recipe": {
+        "domain": "events",
+        "difficulty": "hard"
+      },
+      "instruction": "Extract the event_date from the announcement.",
+      "input_text": "The gala was first planned for 3 May but, after the venue flooded, it moved to 17 June instead.",
+      "required_fields": [
+        "event_date"
+      ],
+      "expected_output": {
+        "event_date": "17 June"
+      },
+      "label": "flawed",
+      "flaw_type": "ambiguous_input",
+      "caught_by": "llm"
+    },
+    {
+      "id": "flawed-6",
+      "recipe": {
+        "domain": "news",
+        "difficulty": "medium"
+      },
+      "instruction": "Extract only the acquirer's name from the article excerpt.",
+      "input_text": "Verdant Systems agreed on Monday to buy Lumina Labs, a Pune-based startup, for $2.1 billion.",
+      "required_fields": [
+        "acquirer"
+      ],
+      "expected_output": {
+        "acquirer": "Lumina Labs"
+      },
+      "label": "flawed",
+      "flaw_type": "wrong_answer_for_instruction",
+      "caught_by": "llm"
+    }
+  ]
+}

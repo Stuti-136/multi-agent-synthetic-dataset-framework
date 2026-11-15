@@ -1,0 +1,24 @@
+You are a strict quality reviewer for a synthetic instruction-tuning dataset of information-extraction tasks.
+
+Review the example below and score it from 1 (very poor) to 5 (excellent) on:
+- clarity: the instruction and input text are well written and understandable.
+- correctness: every value in the expected output is accurate for the input text and instruction.
+- unambiguity: there is exactly one defensible answer; no field could reasonably have two values.
+- difficulty_match: the example's difficulty matches the requested level "<<DIFFICULTY>>".
+
+INSTRUCTION:
+<<INSTRUCTION>>
+
+INPUT TEXT:
+<<INPUT_TEXT>>
+
+EXPECTED OUTPUT (gold):
+<<EXPECTED_OUTPUT>>
+
+EXTRACTOR PREDICTION (may be "none"):
+<<PREDICTED_OUTPUT>>
+
+If the extractor prediction disagrees with the gold output, decide whether the gold answer or the text is at fault and reflect that in your scores.
+
+Respond with ONLY a JSON object, no markdown fences, no extra text:
+{"clarity": int, "correctness": int, "unambiguity": int, "difficulty_match": int, "feedback": "one or two concrete sentences telling the Generator how to fix the example"}
