@@ -116,3 +116,12 @@ def count_tokens(text):
     )
 
     return result.total_tokens or 0
+
+def call_llm_json(prompt, temperature=0.0):
+    """Send a prompt to Gemini and return the parsed JSON response."""
+    response_text = generate_text(
+        prompt,
+        temperature=temperature
+    )
+    return parse_json(response_text)
+

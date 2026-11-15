@@ -1,0 +1,21 @@
+You are revising a synthetic information-extraction example that the critic did not accept.
+Category: <<CATEGORY>>
+
+Keep this recipe. Do not change it:
+<<RECIPE_BLOCK>>
+
+PREVIOUS EXAMPLE (JSON):
+<<PREVIOUS_EXAMPLE>>
+
+CRITIC FEEDBACK:
+<<FEEDBACK>>
+
+Fix every problem the critic named.
+- Change the source_document, instruction or json_schema if needed, then rewrite ground_truth so it is correct for the final document.
+- Never change ground_truth just to match what an extractor predicted. The ground truth must follow the document.
+- Keep the same rules as before: values supported by the document, null for missing fields, dates as YYYY-MM-DD, amounts as plain numbers with no symbol or thousands separator, text values copied exactly, fictional names only, exactly one correct answer.
+- Keep the edge case clearly present.
+<<EXTRA_NOTES>>
+Return only a JSON object with exactly these keys: source_document, instruction, json_schema, ground_truth.
+json_schema types are only "string", "number" or "date". ground_truth has exactly the same keys as json_schema.
+No markdown fences and no commentary.
