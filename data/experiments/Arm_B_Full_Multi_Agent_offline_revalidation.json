@@ -1,0 +1,11 @@
+﻿{
+  "experiment": "Arm_B_Full_Multi_Agent",
+  "validation_type": "Offline deterministic revalidation",
+  "source_file": "Arm_B_Full_Multi_Agent_results.json",
+  "total_examples": 15,
+  "passed": 15,
+  "failed": 0,
+  "pass_rate": 100.0,
+  "status": "Completed",
+  "note": "These results use the updated validation rules and do not replace the original multi-agent experiment metrics."
+}
