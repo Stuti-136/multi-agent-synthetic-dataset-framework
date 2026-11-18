@@ -1,0 +1,1 @@
+{"instruction": "Extract the invoice number, vendor, and amount.", "input": "Subject: Invoice INV/2026/0456\nDear Accounts,\nPlease find attached the invoice from GRAHAM & CO. LTD dated 12/10/2026.\nRegards,\nJohn", "output": {"invoice_number": "INV/2026/0456", "vendor": "GRAHAM & CO. LTD", "amount": null}}

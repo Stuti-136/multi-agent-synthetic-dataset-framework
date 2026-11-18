@@ -1,0 +1,3 @@
+arm,total,accepted,generated,rejected,needs_revision,success_rate,accepted_rate,generated_rate,rejected_rate,avg_attempts,exact_match_rate,mean_field_f1,duplicate_rate,exported
+Arm_A_Generator_Only,15,0,15,0,0,100.0,0.0,100.0,0.0,1.0,,,0.0,15
+Arm_B_Full_Multi_Agent,15,1,0,0,14,6.67,6.67,0.0,0.0,2.87,66.67,0.9044,0.0,1
